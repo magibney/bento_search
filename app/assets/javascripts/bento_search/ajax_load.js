@@ -64,7 +64,8 @@ BentoSearch.ajax_load = function(node, success_callback, beforeSend) {
           do_replace = success_callback.apply(div, [response]);
         }
         if (do_replace != false) {
-          div.replaceWith(response);
+          div.nextAll().remove();
+          div.hide().after(response);
         }
       },
       beforeSend: beforeSend,
