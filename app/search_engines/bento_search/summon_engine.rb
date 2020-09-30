@@ -141,6 +141,7 @@ class BentoSearch::SummonEngine
       results.error ||= {}
       results.error[:exception] = e
       results.error[:status] = response.status if response
+      results.error[:end_user_message] = hash.dig('errors', 0, 'message') if hash
 
       return results
     end
